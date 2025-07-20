@@ -123,26 +123,46 @@ void check_prime(int number){
 
 // Find GCD/HCF 
 void gcd_hcf(int number1, int number2){
-    int gcd = 1;
+    // It's T.C = O(sqrt(minimum(number1, number2)))
+    int hcf = 1;
     if(number1<number2){
-        for(int j= number1; j>=1; j--){
-            if(number1%j == 0 && number2 %j == 0){
-                gcd = j;
-                cout<<gcd<<"\n";
-                break;
+        for(int i=1; i*i<=number1; i++){
+            if(number1 % i == 0 && number2%i== 0){
+                if(i>hcf){
+                    hcf = i;
+                }
+                // if the largest factor of smallest number divides the largest number 
+                // means that number is hcf 
+                // eg from 12,36 -> 12 is a largest factor of 12(smallest number)
+                // now that 12 divides the largest number which is 36 so that is hcf
+                if(i != number1/i && i != number2/i && number2%number1/i == 0){
+                    if(number1/i>hcf){
+                        hcf = number1/i;
+                        break;
+                    }
+                }
             }
         }
     }
+
     else{
-        for(int j= number1; j>=1; j--){
-            if(number1%j == 0 && number2 %j == 0){
-                gcd = j;
-                cout<<gcd<<" with less time complexity \n";
-                break;
+        for(int i=1; i*i<=number2; i++){
+            if(number2 % i == 0 && number1%i== 0){
+                if(i>hcf){
+                    hcf = i;
+                }
+                if(i != number2/i && i != number1/i && number1%number2/i == 0){
+                    if(number2/i>hcf){
+                        hcf = number2/i;
+                        break;
+                    }
+                }
             }
         }
     }
+    cout<<hcf<<"\n";
 }
+
 int main(){
     int num,num1;
     cin>>num;
