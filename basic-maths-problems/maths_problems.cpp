@@ -16,7 +16,7 @@ void extract_and_count_number(int number){
     }
     cout<<"Total Digits: "<<digits_count<<"\n";
     // count the digit
-    cout<<"Total Digits: "<<((int)(log10(number)+1));
+    cout<<"Total Digits: "<<((int)(log10(number)+1))<<"\n";
 }
 
 // Method one for reversing the digit
@@ -34,7 +34,7 @@ void reverse_number_i(int number){
         count -=1;
 
     }
-    cout<<newNumber;
+    cout<<newNumber<<"\n";
 }
 // Method second for reversing the digit
 void reverse_number_ii(int number){
@@ -43,7 +43,7 @@ void reverse_number_ii(int number){
         reverse_number = (reverse_number*10) + number%10;
         number = number/10;
     }
-    cout<<reverse_number;
+    cout<<reverse_number<<"\n";
 }
 
 // Check Number is PALINDROME or not
@@ -54,8 +54,37 @@ void palindrome(int num){
         reverse_number = reverse_number*10 + number%10;
         number = number/10;
     }
-    if(reverse_number == num) cout<<"The given number is a palindrome";
-    else cout<<"The given number is not an palindrome number";
+    if(reverse_number == num) cout<<"The given number is a palindrome\n";
+    else cout<<"The given number is not an palindrome number\n";
+}
+
+// Check Number is ARMSTRONG or not
+void armstrong(int number){
+    int num = number;
+    int num1 = number;
+    int total_digits = (int)(log10(number)+1);
+    int total_sum = 0;
+    int total_sum_1= 0;
+
+    // find armstrong number using pow() function for calculating the power values
+    for(int i=0 ; i<total_digits; i++){
+        total_sum = total_sum + pow(num%10,total_digits);
+        num = num/10;
+    }
+    if(total_sum == number) cout<<total_sum<<" is armstrong\n";
+    else cout<<total_sum<<" is not armstrong\n";
+    
+    // find armstrong number and calculate power values using for loop
+    for(int i=0 ; i<total_digits; i++){
+        int cube_of_each_number = 1;
+        for(int j=0; j<total_digits; j++){
+            cube_of_each_number *= (num1%10);
+        }
+        total_sum_1 = total_sum_1 + cube_of_each_number;
+        num1 = num1/10;
+    }
+    if(total_sum_1 == number) cout<<total_sum_1<<" is armstrong"<<endl;
+    else cout<<total_sum_1<<" is not armstrong\n";
 }
 
 int main(){
@@ -65,5 +94,6 @@ int main(){
     reverse_number_i(num);
     reverse_number_ii(num);
     palindrome(num);
+    armstrong(num);
     return 0;
 }
