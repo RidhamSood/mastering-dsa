@@ -46,11 +46,24 @@ void reverse_number_ii(int number){
     cout<<reverse_number;
 }
 
+// Check Number is PALINDROME or not
+void palindrome(int num){
+    int reverse_number =0;
+    int number = num;
+    while(number!= 0){
+        reverse_number = reverse_number*10 + number%10;
+        number = number/10;
+    }
+    if(reverse_number == num) cout<<"The given number is a palindrome";
+    else cout<<"The given number is not an palindrome number";
+}
+
 int main(){
     int num;
     cin>>num;
     extract_and_count_number(num);
     reverse_number_i(num);
     reverse_number_ii(num);
+    palindrome(num);
     return 0;
 }
