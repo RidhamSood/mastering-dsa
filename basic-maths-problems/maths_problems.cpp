@@ -104,6 +104,23 @@ void print_all_divisors(int number){
     }
 }
 
+// Check Number is Prime or not
+void check_prime(int number){
+    vector <int> ls;
+    for (int i = 1; i*i <= number; i++)
+    {
+        if(number%i == 0){  
+            ls.push_back(i);
+            if(i != number/i){
+                ls.push_back(number/i);
+            }
+        }
+    }
+    
+    if(ls.size() == 2) cout<<"Given Number is prime\n";
+    else cout<<"Given Number is not prime\n";    
+}
+
 int main(){
     int num;
     cin>>num;
@@ -113,5 +130,6 @@ int main(){
     palindrome(num);
     armstrong(num);
     print_all_divisors(num);
+    check_prime(num);
     return 0;
 }
