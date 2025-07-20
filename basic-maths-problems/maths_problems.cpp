@@ -71,8 +71,8 @@ void armstrong(int number){
         total_sum = total_sum + pow(num%10,total_digits);
         num = num/10;
     }
-    if(total_sum == number) cout<<total_sum<<" is armstrong\n";
-    else cout<<total_sum<<" is not armstrong\n";
+    if(total_sum == number) cout<<number<<" is armstrong\n";
+    else cout<<number<<" is not armstrong\n";
     
     // find armstrong number and calculate power values using for loop
     for(int i=0 ; i<total_digits; i++){
@@ -83,8 +83,25 @@ void armstrong(int number){
         total_sum_1 = total_sum_1 + cube_of_each_number;
         num1 = num1/10;
     }
-    if(total_sum_1 == number) cout<<total_sum_1<<" is armstrong"<<endl;
-    else cout<<total_sum_1<<" is not armstrong\n";
+    if(total_sum_1 == number) cout<<number<<" is armstrong"<<endl;
+    else cout<<number<<" is not armstrong\n";
+}
+
+// Print all divisors
+void print_all_divisors(int number){
+    vector<int> divisors;
+    for(int i = 1 ; i<= sqrt(number); i++){
+        if(number%i == 0){
+            divisors.push_back(i);
+            if(i != number/i){
+                divisors.push_back(number/i);
+            }
+        } 
+    }
+    sort(divisors.begin(),divisors.end());
+    for(auto it:divisors){
+        cout<<it<<"\n";
+    }
 }
 
 int main(){
@@ -95,5 +112,6 @@ int main(){
     reverse_number_ii(num);
     palindrome(num);
     armstrong(num);
+    print_all_divisors(num);
     return 0;
 }
