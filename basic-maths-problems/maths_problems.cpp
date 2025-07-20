@@ -121,9 +121,32 @@ void check_prime(int number){
     else cout<<"Given Number is not prime\n";    
 }
 
+// Find GCD/HCF 
+void gcd_hcf(int number1, int number2){
+    int gcd = 1;
+    if(number1<number2){
+        for(int j= number1; j>=1; j--){
+            if(number1%j == 0 && number2 %j == 0){
+                gcd = j;
+                cout<<gcd<<"\n";
+                break;
+            }
+        }
+    }
+    else{
+        for(int j= number1; j>=1; j--){
+            if(number1%j == 0 && number2 %j == 0){
+                gcd = j;
+                cout<<gcd<<" with less time complexity \n";
+                break;
+            }
+        }
+    }
+}
 int main(){
-    int num;
+    int num,num1;
     cin>>num;
+    cin>>num1;
     extract_and_count_number(num);
     reverse_number_i(num);
     reverse_number_ii(num);
@@ -131,5 +154,6 @@ int main(){
     armstrong(num);
     print_all_divisors(num);
     check_prime(num);
+    gcd_hcf(num,num1);
     return 0;
 }
