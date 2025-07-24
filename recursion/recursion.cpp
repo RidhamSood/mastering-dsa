@@ -29,11 +29,21 @@ void func2(int num){
     cout<<num;
     func2(num-1);
 }
+
+int sum_using_recursion(int num){
+    if(num<1) return num;
+    else return  num + sum_using_recursion(num-1);
+}
+
 int main(){
     int num;
     cin>>num;
     basic_recursion();
     func1(num);
+    cout<<endl;
     func2(num);
+    cout<<endl;
+    cout<<sum_using_recursion(num);
+    cout<<endl;
     return 0;
 }
