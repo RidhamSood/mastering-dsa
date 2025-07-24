@@ -14,7 +14,26 @@ void basic_recursion(){
         basic_recursion();
     }
 }
+
+// print 1 to n using recursion
+// we are doing backtracking here
+void func1(int num){
+    if(num<1) return;
+    func1(num-1);
+    cout<<num;
+}
+
+// print n to 1
+void func2(int num){
+    if(num<1) return ;
+    cout<<num;
+    func2(num-1);
+}
 int main(){
+    int num;
+    cin>>num;
     basic_recursion();
+    func1(num);
+    func2(num);
     return 0;
 }
