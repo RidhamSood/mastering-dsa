@@ -35,6 +35,12 @@ int sum_using_recursion(int num){
     else return  num + sum_using_recursion(num-1);
 }
 
+// factorial using recursion
+int factorial_rec(int num){
+    if(num == 1) return 1;
+    return num*factorial_rec(num-1);
+}
+
 int main(){
     int num;
     cin>>num;
@@ -44,6 +50,8 @@ int main(){
     func2(num);
     cout<<endl;
     cout<<sum_using_recursion(num);
+    cout<<endl;
+    cout<<factorial_rec(num);
     cout<<endl;
     return 0;
 }
