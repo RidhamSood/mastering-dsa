@@ -41,6 +41,13 @@ int factorial_rec(int num){
     return num*factorial_rec(num-1);
 }
 
+int fibonacci(int num){
+    if(num<=1){
+        return num;
+    }
+    else return fibonacci(num-1) + fibonacci(num-2);
+}
+
 int main(){
     int num;
     cin>>num;
@@ -53,5 +60,8 @@ int main(){
     cout<<endl;
     cout<<factorial_rec(num);
     cout<<endl;
+    cout<<fibonacci(num);
+    cout<<endl;
+
     return 0;
 }
